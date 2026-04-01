@@ -5,23 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Ami Steelman</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink: #1a1917;
-      --ink-secondary: #6b6860;
-      --ink-tertiary: #a09e99;
-      --surface: #faf9f7;
-      --rule: #e8e5e0;
-      --accent: #2d5a3d;
+      --slate-deep: #1C2B3A;
+      --slate-mid: #3D5A6B;
+      --steel: #5B8FA8;
+      --fog: #A8BCC8;
+      --ice: #E8EEF2;
+      --ink: #1C2B3A;
+      --ink-secondary: #3D5A6B;
+      --ink-tertiary: #7A96A6;
+      --surface: #F4F7F9;
+      --rule: #D6E2E9;
+      --white: #ffffff;
     }
 
     html { font-size: 16px; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 300;
       background: var(--surface);
       color: var(--ink);
@@ -31,7 +36,8 @@
 
     header {
       border-bottom: 1px solid var(--rule);
-      padding: 2rem 0;
+      padding: 1.5rem 0;
+      background: var(--white);
     }
 
     .container {
@@ -41,15 +47,17 @@
     }
 
     .site-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
       color: var(--ink);
       text-decoration: none;
       letter-spacing: -0.01em;
     }
 
     .site-name span {
-      color: var(--accent);
+      color: var(--steel);
+      font-weight: 300;
     }
 
     main {
@@ -57,25 +65,28 @@
     }
 
     .page-label {
-      font-size: 0.7rem;
-      font-weight: 500;
+      font-size: 0.68rem;
+      font-weight: 400;
+      font-family: 'Space Mono', monospace;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--steel);
       margin-bottom: 1rem;
     }
 
     h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 300;
       line-height: 1.15;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       color: var(--ink);
       margin-bottom: 0.5rem;
     }
 
     .updated {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      font-family: 'Space Mono', monospace;
       color: var(--ink-tertiary);
       margin-bottom: 3rem;
       padding-bottom: 3rem;
@@ -83,12 +94,13 @@
     }
 
     .intro {
-      font-size: 1.05rem;
+      font-size: 1rem;
+      font-weight: 300;
       color: var(--ink-secondary);
       margin-bottom: 3rem;
       padding: 1.5rem;
-      border-left: 2px solid var(--accent);
-      background: rgba(45, 90, 61, 0.04);
+      border-left: 2px solid var(--steel);
+      background: rgba(91, 143, 168, 0.06);
       border-radius: 0 6px 6px 0;
     }
 
@@ -97,9 +109,10 @@
     }
 
     h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      letter-spacing: -0.01em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
       color: var(--ink);
       margin-bottom: 0.75rem;
       padding-top: 2.5rem;
@@ -115,6 +128,7 @@
       color: var(--ink-secondary);
       margin-bottom: 1rem;
       font-size: 0.95rem;
+      font-weight: 300;
     }
 
     p:last-child { margin-bottom: 0; }
@@ -126,6 +140,7 @@
 
     ul li {
       font-size: 0.95rem;
+      font-weight: 300;
       color: var(--ink-secondary);
       padding: 0.4rem 0 0.4rem 1.25rem;
       position: relative;
@@ -140,21 +155,22 @@
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: 5px;
-      height: 5px;
+      width: 4px;
+      height: 4px;
       border-radius: 50%;
-      background: var(--accent);
-      opacity: 0.5;
+      background: var(--steel);
+      opacity: 0.6;
     }
 
     .app-tag {
       display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 500;
+      font-size: 0.68rem;
+      font-weight: 400;
+      font-family: 'Space Mono', monospace;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(45, 90, 61, 0.08);
+      color: var(--slate-mid);
+      background: rgba(91, 143, 168, 0.1);
       padding: 0.2rem 0.6rem;
       border-radius: 3px;
       margin-right: 0.4rem;
@@ -166,7 +182,7 @@
       padding: 2rem;
       border: 1px solid var(--rule);
       border-radius: 8px;
-      background: #fff;
+      background: var(--white);
     }
 
     .contact-block p {
@@ -174,9 +190,9 @@
     }
 
     .contact-block a {
-      color: var(--accent);
+      color: var(--steel);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .contact-block a:hover {
@@ -186,8 +202,13 @@
     footer {
       border-top: 1px solid var(--rule);
       padding: 2rem 0;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      font-family: 'Space Mono', monospace;
       color: var(--ink-tertiary);
+      background: var(--white);
+    }
+
+    footer .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -205,7 +226,7 @@
     @media (max-width: 480px) {
       .container { padding: 0 1.25rem; }
       main { padding: 2.5rem 0 4rem; }
-      footer { flex-direction: column; align-items: flex-start; }
+      footer .container { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -220,7 +241,7 @@
   <main>
     <div class="container">
 
-      <p class="page-label">Legal</p>
+      <p class="page-label">// legal</p>
       <h1>Privacy Policy</h1>
       <p class="updated">Last updated: March 2026</p>
 
@@ -262,7 +283,7 @@
 
       <section>
         <h2>Third-party services</h2>
-        <p>My Google Workspace add-ons run entirely within Google's Apps Script platform and are subject to <a href="https://policies.google.com/privacy" style="color: var(--accent);">Google's Privacy Policy</a>. I do not integrate any additional third-party analytics, tracking, or data services.</p>
+        <p>My Google Workspace add-ons run entirely within Google's Apps Script platform and are subject to <a href="https://policies.google.com/privacy" style="color: var(--steel);">Google's Privacy Policy</a>. I do not integrate any additional third-party analytics, tracking, or data services.</p>
       </section>
 
       <section>
@@ -286,7 +307,7 @@
   </main>
 
   <footer>
-    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; width: 100%;">
+    <div class="container">
       <span>© 2026 Ami Steelman</span>
       <a href="/">amisteelman.com</a>
     </div>
