@@ -1,0 +1,91 @@
+---
+import projects from "@/collections/featuredwork.json";
+import WorkCard from "@/components/cards/WorkCard.astro";
+import SectionHeader from "@/components/elements/SectionHeader.astro";
+import Button from "@/components/ui/Button.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  showAll?: boolean;
+  limit?: number;
+}
+
+interface Project {
+  name: string;
+  description?: string;
+  image: string;
+  url: string;
+  tags?: string[];
+  video?: string;
+  isShow?: boolean;
+}
+
+const {
+  showAll = false,
+  limit
+} = Astro.props;
+
+const sectionDescription = "Hundreds of curriculum documents. No easy way to search, compare, or analyze them. I built a system that turns the disconnected data into something teams can actually use.";
+
+
+const allProjects = (projects as Project[]).filter(
+  (project) => project.isShow !== false && project.url === "/case-study"
+);
+
+const featuredProjects = allProjects.slice(0, 1);
+const gridProjects: Project[] = [];
+const shouldShowViewAll = false;
+---
+
+<section class="py-16 md:py-16 md:pb-12">
+  <div class="site-container space-y-8 md:space-y-8">
+    <SectionHeader title="Featured Case Study" description={sectionDescription} />
+
+    {featuredProjects.length > 0 && (
+      <div class="space-y-8 md:space-y-10" data-aos-delay="750" data-aos="fade-up-sm" data-aos-duration="1000" data-aos-once="true">
+        {featuredProjects.map((project, index) => (
+            <WorkCard
+              name={project.name}
+              description={project.description}
+              image={project.image}
+              url={project.url}
+              tags={project.tags}
+              video={project.video}
+              isShow={project.isShow}
+              layout="featured"
+              index={index}
+            />
+          ))}
+      </div>
+    )}
+
+    {gridProjects.length > 0 && (
+      <div class="grid gap-6 md:gap-8 md:grid-cols-2" data-aos-delay="150" data-aos="fade-up-sm" data-aos-duration="1000" data-aos-once="true">
+        {gridProjects
+          .filter(project => project.isShow !== false)
+          .map((project, index) => (
+            <WorkCard
+              name={project.name}
+              description={project.description}
+              image={project.image}
+              url={project.url}
+              tags={project.tags}
+              video={project.video}
+              isShow={project.isShow}
+              layout="grid"
+              index={index}
+            />
+          ))}
+      </div>
+    )}
+
+    {shouldShowViewAll && (
+      <div class="flex items-center justify-center pt-4">
+        <Button url="/works" className="w-full max-w-60">
+          See All Works
+        </Button>
+      </div>
+    )}
+  </div>
+</section>

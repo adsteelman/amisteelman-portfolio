@@ -1,0 +1,24 @@
+# Query: favicon
+# ContextLines: 1
+
+5 results - 4 files
+
+README-zh.md:
+  92  │   ├── assets/         
+  93: │   └── favicon.png     
+  94  ├── src/
+
+README.md:
+  96  │   ├── assets/         # Images, videos, etc.
+  97: │   └── favicon.png     # Site favicon
+  98  ├── src/
+
+src/layouts/Layout.astro:
+  47  
+  48:     <link rel="icon" type="image/x-icon" href="/favicon.png" />
+  49    </head>
+
+src/layouts/Meta.astro:
+  24  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  25: <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  26  <title>{title}</title>
