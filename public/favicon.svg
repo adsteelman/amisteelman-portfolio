@@ -1,3 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <text x="32" y="58" text-anchor="middle" font-family="'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif" font-size="100" font-weight="200" fill="#3D5A6B">a</text>
+  <style>
+    text { fill: #3D5A6B; }
+    @media (prefers-color-scheme: dark) {
+      text { fill: #A8BCC8; }
+    }
+  </style>
+  <text x="32" y="58" text-anchor="middle" font-family="'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif" font-size="72" font-weight="200">a</text>
 </svg>
