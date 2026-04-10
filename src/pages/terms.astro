@@ -35,118 +35,209 @@
     }
 
     header {
-      background: var(--slate-deep);
-      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--rule);
+      padding: 1.5rem 0;
+      background: var(--white);
     }
-
-    header a {
-      font-family: 'Space Mono', monospace;
-      font-size: 1rem;
-      color: var(--ice);
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-
-    header a span { color: var(--steel); }
 
     .container {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: 0 2rem;
+    }
+
+    .site-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .site-name span {
+      color: var(--steel);
+      font-weight: 300;
+    }
+
+    main {
+      padding: 4rem 0 6rem;
+    }
+
+    .page-label {
+      font-size: 0.68rem;
+      font-weight: 400;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 1rem;
     }
 
     h1 {
-      font-family: 'Space Mono', monospace;
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--slate-deep);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--ink);
       margin-bottom: 0.5rem;
-      letter-spacing: -0.5px;
     }
 
     .updated {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      font-family: 'Space Mono', monospace;
       color: var(--ink-tertiary);
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .intro {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ink-secondary);
+      margin-bottom: 3rem;
+      padding: 1.5rem;
+      border-left: 2px solid var(--steel);
+      background: rgba(91, 143, 168, 0.06);
+      border-radius: 0 6px 6px 0;
     }
 
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     h2 {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--steel);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    section:first-of-type h2 {
+      border-top: none;
+      padding-top: 0;
     }
 
     p {
-      font-size: 0.95rem;
       color: var(--ink-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    .contact-block {
+      margin-top: 3rem;
+      padding: 2rem;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .contact-block p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-block a {
+      color: var(--steel);
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .contact-block a:hover {
+      text-decoration: underline;
     }
 
     footer {
-      background: var(--slate-deep);
-      color: var(--fog);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.85rem;
+      border-top: 1px solid var(--rule);
+      padding: 2rem 0;
+      font-size: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      color: var(--ink-tertiary);
+      background: var(--white);
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     footer a {
-      color: var(--steel);
+      color: var(--ink-tertiary);
       text-decoration: none;
+    }
+
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 1.25rem; }
+      main { padding: 2.5rem 0 4rem; }
+      footer .container { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="/"><span>ami</span>steelman</a>
+    <div class="container">
+      <a href="/" class="site-name">ami<span>steelman</span></a>
+    </div>
   </header>
 
-  <main class="container">
-    <h1>Terms of Service</h1>
-    <p class="updated">Last updated: April 9, 2026</p>
+  <main>
+    <div class="container">
 
-    <section>
-      <p>By using any app, add-on, or tool published by Ami Steelman ("the developer"), you agree to these terms.</p>
-    </section>
+      <p class="page-label">// legal</p>
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: April 2026</p>
 
-    <section>
-      <h2>Use of the service</h2>
-      <p>These tools are provided for personal and professional use. You agree not to use them for any unlawful purpose or in any way that could damage, disable, or impair the tools or interfere with other users.</p>
-    </section>
+      <p class="intro">
+        These terms apply to all apps, add-ons, and tools published by Ami Steelman at amisteelman.com. I keep things simple and straightforward — here's what you need to know.
+      </p>
 
-    <section>
-      <h2>No warranties</h2>
-      <p>These tools are provided "as is" without warranty of any kind. The developer makes no guarantees about availability, accuracy, or fitness for a particular purpose.</p>
-    </section>
+      <section>
+        <h2>Use of the service</h2>
+        <p>These tools are provided for personal and professional use. You agree not to use them for any unlawful purpose or in any way that could damage, disable, or impair the tools or interfere with other users.</p>
+      </section>
 
-    <section>
-      <h2>Limitation of liability</h2>
-      <p>The developer is not liable for any damages arising from your use of these tools, including but not limited to data loss, service interruptions, or errors in output.</p>
-    </section>
+      <section>
+        <h2>No warranties</h2>
+        <p>These tools are provided "as is" without warranty of any kind. The developer makes no guarantees about availability, accuracy, or fitness for a particular purpose.</p>
+      </section>
 
-    <section>
-      <h2>Your data</h2>
-      <p>Each tool's data practices are described in the Privacy Policy at <a href="/privacy">amisteelman.com/privacy</a>. In general, these tools do not collect, store, or transmit your personal data.</p>
-    </section>
+      <section>
+        <h2>Limitation of liability</h2>
+        <p>The developer is not liable for any damages arising from your use of these tools, including but not limited to data loss, service interruptions, or errors in output.</p>
+      </section>
 
-    <section>
-      <h2>Changes to these terms</h2>
-      <p>These terms may be updated at any time. Continued use of the tools after changes constitutes acceptance of the new terms.</p>
-    </section>
+      <section>
+        <h2>Your data</h2>
+        <p>Each tool's data practices are described in the <a href="/privacy" style="color: var(--steel);">Privacy Policy</a>. In general, these tools do not collect, store, or transmit your personal data.</p>
+      </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Questions? Reach out at <a href="mailto:privacy@amisteelman.com">privacy@amisteelman.com</a>.</p>
-    </section>
+      <section>
+        <h2>Changes to these terms</h2>
+        <p>These terms may be updated at any time. Continued use of the tools after changes constitutes acceptance of the new terms.</p>
+      </section>
 
+      <div class="contact-block">
+        <p style="font-weight: 500; color: var(--ink); margin-bottom: 0.75rem;">Questions or concerns?</p>
+        <p>If you have any questions about these terms, please reach out:</p>
+        <p><a href="mailto:privacy@amisteelman.com">privacy@amisteelman.com</a></p>
+        <p style="margin-top: 0.75rem; font-size: 0.85rem;">I'm a solo developer and will respond personally.</p>
+      </div>
+
+    </div>
   </main>
 
   <footer>
