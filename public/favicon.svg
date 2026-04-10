@@ -5,5 +5,5 @@
       text { fill: #A8BCC8; }
     }
   </style>
-  <text x="32" y="58" text-anchor="middle" font-family="'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif" font-size="72" font-weight="200">a</text>
+  <text x="32" y="58" text-anchor="middle" font-family="'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif" font-size="100" font-weight="200">a</text>
 </svg>
