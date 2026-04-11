@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FontSwap — Ami Steelman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate-deep: #1C2B3A;
+      --slate-mid: #3D5A6B;
+      --steel: #5B8FA8;
+      --fog: #A8BCC8;
+      --ice: #E8EEF2;
+      --ink: #1C2B3A;
+      --ink-secondary: #3D5A6B;
+      --ink-tertiary: #7A96A6;
+      --surface: #F4F7F9;
+      --rule: #D6E2E9;
+      --white: #ffffff;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 300;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid var(--rule);
+      padding: 1.5rem 0;
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .site-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .site-name span {
+      color: var(--steel);
+      font-weight: 300;
+    }
+
+    .hero {
+      background: var(--slate-deep);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-logo .f { color: var(--ice); }
+    .hero-logo .s { color: var(--steel); }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--fog);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--steel);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { background: #4a7a91; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--fog);
+      border: 1px solid var(--slate-mid);
+      margin-left: 0.75rem;
+    }
+
+    .btn-secondary:hover { color: var(--ice); }
+
+    main {
+      padding: 4rem 0 6rem;
+    }
+
+    .page-label {
+      font-size: 0.68rem;
+      font-weight: 400;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .intro {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ink-secondary);
+      margin-bottom: 3rem;
+      padding: 1.5rem;
+      border-left: 2px solid var(--steel);
+      background: rgba(91, 143, 168, 0.06);
+      border-radius: 0 6px 6px 0;
+    }
+
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    section:first-of-type h2 {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    p {
+      color: var(--ink-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 0.75rem 0 1rem;
+    }
+
+    ul li {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink-secondary);
+      padding: 0.4rem 0 0.4rem 1.25rem;
+      position: relative;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--steel);
+      opacity: 0.6;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .step-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--steel);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .step p { margin-bottom: 0; }
+
+    .privacy-note {
+      margin-top: 3rem;
+      padding: 2rem;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .privacy-note p { margin-bottom: 0.5rem; }
+
+    .privacy-note a {
+      color: var(--steel);
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 0;
+      font-size: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      color: var(--ink-tertiary);
+      background: var(--white);
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    footer a {
+      color: var(--ink-tertiary);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 1.25rem; }
+      main { padding: 2.5rem 0 4rem; }
+      .hero { padding: 2.5rem 0; }
+      .hero-logo { font-size: 2rem; }
+      footer .container { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="/" class="site-name">ami<span>steelman</span></a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-logo">
+      <span class="f">F</span><span class="s">S</span>
+    </div>
+    <p class="hero-tagline">Swap fonts across Google Slides™ and Docs™ in one click.</p>
+    <a href="https://workspace.google.com/marketplace" class="btn btn-primary">Install from Marketplace</a>
+    <a href="/privacy" class="btn btn-secondary">Privacy Policy</a>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <p class="page-label">// tools</p>
+      <h1>FontSwap</h1>
+
+      <p class="intro">
+        FontSwap is a free Google Workspace™ add-on that scans your entire document for fonts and replaces them in seconds — including tables, speaker notes, headers, and footers.
+      </p>
+
+      <section>
+        <h2>What it does</h2>
+        <ul>
+          <li>Scans your entire Google Slides™ or Google Docs™ file for all fonts in use</li>
+          <li>Replaces any font with any Google Fonts family in one click</li>
+          <li>Covers tables, speaker notes, masters, layouts, headers, and footers</li>
+          <li>10–50× faster than manual font replacement</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How to use it</h2>
+        <div class="step">
+          <div class="step-num">1</div>
+          <p>Install FontSwap from the Google Workspace™ Marketplace.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p>Open any Google Slides™ presentation or Google Docs™ document.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p>Go to <strong>Extensions → FontSwap → Start FontSwap</strong>.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <p>Choose the font to replace, enter a Google Fonts family name, and click Replace.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Works with</h2>
+        <ul>
+          <li>Google Slides™</li>
+          <li>Google Docs™</li>
+          <li>Any Google Fonts family</li>
+        </ul>
+      </section>
+
+      <div class="privacy-note">
+        <p style="font-weight: 500; color: var(--ink); margin-bottom: 0.75rem;">Your data stays yours.</p>
+        <p>FontSwap only reads font metadata within your open document and never stores, logs, or transmits any of your content. All processing happens within Google's infrastructure.</p>
+        <p style="margin-top: 0.75rem;"><a href="/privacy">Read the full privacy policy →</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© 2026 Ami Steelman</span>
+      <a href="/">amisteelman.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>
