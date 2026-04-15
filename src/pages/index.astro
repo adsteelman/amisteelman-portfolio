@@ -1,6 +1,5 @@
 ---
 import Button from "../components/ui/Button.astro";
-import HeroCard from "@/components/home/HeroCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import FeaturedWork from "../components/sections/FeaturedWork.astro";
 import AnimatedText from "@/components/ui/AnimatedText.astro";
@@ -31,7 +30,7 @@ keywords="implementation, user adoption, training, systems thinking, AI integrat
         <!-- First description - AnimatedText animation -->
         <div class="mb-2">
           <AnimatedText
-            content="I turn messy ideas into working systems. "
+            content="Complex systems are only valuable if people can use them."
             delay={0.3}
             duration={0.5}
             stagger={0.015}
@@ -42,7 +41,7 @@ keywords="implementation, user adoption, training, systems thinking, AI integrat
         <!-- Second description - AnimatedText animation -->
         <div class="mb-4">
           <AnimatedText
-            content="I design and build practical solutions using AI and modern tools—focused on real problems, not unnecessary complexity."
+            content="I turn that complexity into clarity."
             delay={0.5}
             duration={0.5}
             stagger={0.015}
@@ -59,26 +58,12 @@ keywords="implementation, user adoption, training, systems thinking, AI integrat
           data-aos-once="true"
         >
           <Button url="https://www.linkedin.com/in/ami-steelman/" type="fill" className="m-auto mt-4 text-center sm:text-left sm:m-0 sm:mt-6 max-w-[200px]">
-            Find me on LinkedIn
+            Let's talk
           </Button>
         </div>
 
       </div>
 
-      <!-- HeroCard - AOS animation -->
-      <div
-        class="relative justify-end w-full mt-16 md:flex md:pl-10 md:w-1/2 md:mt-0 md:translate-y-4 xl:translate-y-0"
-        data-aos="fade-left-sm"
-        data-aos-delay="300"
-        data-aos-duration="800"
-        data-aos-once="true"
-      >
-        <HeroCard
-          imageUrl="/assets/home/gradientshub.jpg"
-          title="Gradientshub"
-          link="https://gradientshub.com"
-        />
-      </div>
     </div>
   </div>
 
