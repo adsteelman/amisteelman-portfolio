@@ -1,5 +1,6 @@
 ---
 import Button from "../components/ui/Button.astro";
+import TaglineCard from "@/components/home/TaglineCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import FeaturedWork from "../components/sections/FeaturedWork.astro";
 import AnimatedText from "@/components/ui/AnimatedText.astro";
@@ -64,6 +65,16 @@ keywords="implementation, user adoption, training, systems thinking, AI integrat
 
       </div>
 
+      <!-- TaglineCard -->
+      <div
+        class="relative justify-end w-full mt-16 md:flex md:pl-10 md:w-1/2 md:mt-0 md:translate-y-4 xl:translate-y-0"
+        data-aos="fade-left-sm"
+        data-aos-delay="300"
+        data-aos-duration="800"
+        data-aos-once="true"
+      >
+        <TaglineCard />
+      </div>
     </div>
   </div>
 
