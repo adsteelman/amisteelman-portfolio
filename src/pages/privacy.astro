@@ -298,7 +298,7 @@
         <ul>
           <li>All processing occurs exclusively within the Google's Apps Script™ infrastructure — no data leaves Google's servers</li>
           <li>FontSwap only accesses font metadata (font family names and text style information) — it does not read, store, or transmit the actual text content of your documents</li>
-          <li>OAuth scopes are limited to the minimum required: read and write access to presentations and documents is necessary to scan and replace font families across the complete document structure</li>
+          <li>OAuth scopes are limited to the minimum required: access is restricted to only the currently active presentation or document — FontSwap cannot access any other files in the user's Drive</li>
           <li>No third-party services, analytics, or tracking tools are integrated</li>
           <li>Access tokens are managed entirely by Google's OAuth infrastructure and are never stored by the developer</li>
           <li>All data access ends when the user closes the add-on dialog</li>
