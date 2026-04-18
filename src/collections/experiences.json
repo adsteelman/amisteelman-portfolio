@@ -1,17 +1,16 @@
 [
 	{
-		"dates": "June 2018 · Present",
-		"role": "Web & Product Designer",
-		"company": "Company Name",
-		"description": "Leading the design of user-centric web applications and dating platforms.",
-		"logo": "/assets/experiences/company.jpg"
+		"dates": "January 2011 – Present",
+		"role": "Director of Academic Technology & Innovation",
+		"company": "Heritage Hall School — Oklahoma City, OK",
+		"description": "Led end-to-end implementation of SaaS and enterprise platforms, built an AI-powered knowledge system that reduced support requests by ~30%, and drove adoption across the organization through training and change management.",
+		"logo": ""
 	},
 	{
-		"dates": "July 2016 · June 2017",
-		"role": "Web & Product Designer",
-		"company": "Company Name",
-		"description": "Spearheaded the design and development of e-commerce websites and online marketplaces.",
-		"logo": "/assets/experiences/company.jpg"
+		"dates": "2006 – 2010",
+		"role": "Senior Paralegal & IT Manager",
+		"company": "Walker Harris and Wolfe, PLLC — Oklahoma City, OK",
+		"description": "Owned both legal operations and IT infrastructure at a startup law firm — implementing practice management systems, migrating data, and building the training programs that made it all stick.",
+		"logo": ""
 	}
-
 ]
