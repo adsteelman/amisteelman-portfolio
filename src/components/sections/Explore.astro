@@ -2,7 +2,6 @@
 import SectionHeader from "@/components/elements/SectionHeader.astro";
 import Matter from "@/components/ui/Matter.astro";
 import Button from "@/components/ui/Button.astro";
-import Tools from "../ui/Tools.astro";
 interface Props {
   title?: string;
   description?: string;
@@ -98,20 +97,27 @@ const {title, description
                         </div>
                     </div>
                 </div>
-                <div class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark explore-item-3 relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-4 h-[220px] sm:h-[240px] md:h-[260px]"
+                <div class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-4 h-[220px] sm:h-[240px] md:h-[260px]"
   data-aos="fade-up-sm"
   data-aos-delay="800"
   data-aos-duration="600"
   data-aos-once="true">
-                    <div class="content">
-                        <h3>Experiences & Learning Design</h3>
-                        <p>I design experiences that make complex things engaging and usable.</p>
-                    </div>
-                    <div class=" explore-figure absolute machine right-[5%] sm:right-[-10%] md:right-[-7%] bottom-0 top-0 flex items-center">
-                        <Tools />
+                    <div class="content" style="max-width: 65%;">
+                        <h3>STEM for Girls</h3>
+                        <p>I'm building resources to get young girls into tech before the world tells them not to.</p>
                     </div>
                 </div>
-            
+                <div class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-5 md:col-span-2 h-[220px] sm:h-[240px] md:h-[260px]"
+  data-aos="fade-up-sm"
+  data-aos-delay="900"
+  data-aos-duration="600"
+  data-aos-once="true">
+                    <div class="content" style="max-width: 65%;">
+                        <h3>Just for Fun</h3>
+                        <p>Escape games, side projects, and whatever I built because I couldn't help myself.</p>
+                    </div>
+                </div>
+
         </div>
     </div>
 </section>
