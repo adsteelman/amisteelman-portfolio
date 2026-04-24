@@ -37,8 +37,8 @@ const {title, description
                             </Button>
                         </div> -->
                     </div>
-                    <div class="absolute right-0 bottom-0 top-0 w-[60%] pointer-events-none">
-                        <img src={systemsAutomation} alt="" aria-hidden="true" class="w-full h-full object-cover">
+                    <div class="absolute explore-svg explore-svg-1 bottom-0 top-0 w-[45%] pointer-events-none flex items-center">
+                        <img src={systemsAutomation} alt="" aria-hidden="true" class="w-full h-auto object-contain">
                     </div>
                 </div>
                 <div class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-2 h-[220px] sm:h-[240px] md:h-[260px]"
@@ -50,8 +50,8 @@ const {title, description
                         <h3>Tools & Applications</h3>
                         <p>I create tools people can actually use.</p>
                     </div>
-                    <div class="absolute right-0 bottom-0 top-0 w-[60%] pointer-events-none">
-                        <img src={toolsApplications} alt="" aria-hidden="true" class="w-full h-full object-cover">
+                    <div class="absolute explore-svg explore-svg-2 bottom-0 top-0 w-[45%] pointer-events-none flex items-center">
+                        <img src={toolsApplications} alt="" aria-hidden="true" class="w-full h-auto object-contain">
                     </div>
                 </div>
                 <div class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-3 h-[220px] sm:h-[240px] md:h-[260px]"
@@ -68,8 +68,8 @@ const {title, description
                             </Button> -->
                         </div>
                     </div>
-                    <div class="absolute right-0 bottom-0 top-0 w-[60%] pointer-events-none">
-                        <img src={aiSolutions} alt="" aria-hidden="true" class="w-full h-full object-cover">
+                    <div class="absolute explore-svg explore-svg-3 bottom-0 top-0 w-[45%] pointer-events-none flex items-center">
+                        <img src={aiSolutions} alt="" aria-hidden="true" class="w-full h-auto object-contain">
                     </div>
                 </div>
                 <div class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-4 h-[220px] sm:h-[240px] md:h-[260px]"
@@ -190,328 +190,23 @@ const {title, description
     }
 
 
-    @media (min-width: 768px) {
-        .explore-item-1:hover .keyboard{
-            right: -48%;
-        }
-
-        .explore-item-3:hover .computer{
-            right: 5%;
-        }
-
-        .explore-item-4:hover .machine{
-            right: 5%;
-        }
-    }
-
-
-    @media (max-width: 767px) {
-        .explore-item-1:hover .keyboard{
-            right: -70%;
-        }
-
-        .explore-item-3:hover .computer{
-            right: -5%;
-        }
-
-        .explore-item-4:hover .machine{
-            right: -5%;
-        }
-    }
-    @media (max-width: 767px) {
-        .machine{
-            transform: scale(0.9);
-        }
-    }
-    .computer{
-        cursor: pointer;
-        transition: all .5s ease-in-out;
+    .explore-svg {
+        right: -8%;
+        transition: right .5s ease-in-out;
         z-index: 10;
     }
 
-    .keyboard,.game,.machine{
-        cursor: pointer;
-        transition: all .5s ease-in-out;
-        z-index: 10;
+    .explore-item-1:hover .explore-svg-1,
+    .explore-item-2:hover .explore-svg-2,
+    .explore-item-3:hover .explore-svg-3 {
+        right: 0%;
     }
-
-
-    .game-container {
-        perspective: 1000px;
-        overflow: visible !important;
-    }
-    .explore-figure{
-        z-index: 50;
-    }
-
-
-    .explore-item-2 {
-        overflow: hidden;
-    }
-
-
-
-    .explore-list {
-        overflow: visible;
-    }
-
-    .explore-content {
-        overflow: visible;
-    }
-
-
-    .explore-item-2 .game {
-        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-
-    @media (min-width: 768px) {
-        .explore-item-2:hover .game[data-game="1"] {
-            right: 8%;
-            transform: translateX(0) scale(1.0);
-            z-index: 10;
-        }
-
-        .explore-item-2:hover .game[data-game="2"] {
-            right: 17%;
-            transform: translateX(0) scale(1.02);
-            z-index: 20;
-        }
-
-        .explore-item-2:hover .game[data-game="3"] {
-            right: 26%;
-            transform: translateX(0) scale(1.05);
-            z-index: 30;
-        }
-
-        .explore-item-2:hover .game[data-game="4"] {
-            right: 35%;
-            transform: translateX(0) scale(1.02);
-            z-index: 40;
-        }
-
-        .explore-item-2:hover .game[data-game="5"] {
-            right: 42%;
-            transform: translateX(0) scale(1.0);
-            z-index: 50;
-        }
-    }
-
-
-    @media (max-width: 767px) {
-        .explore-item-2:hover .game[data-game="1"] {
-            right: 0%;
-            transform: translateX(0) scale(0.95);
-            z-index: 10;
-        }
-
-        .explore-item-2:hover .game[data-game="2"] {
-            right: 10%;
-            transform: translateX(0) scale(0.97);
-            z-index: 20;
-        }
-
-        .explore-item-2:hover .game[data-game="3"] {
-            right: 20%;
-            transform: translateX(0) scale(1.0);
-            z-index: 30;
-        }
-
-        .explore-item-2:hover .game[data-game="4"] {
-            right: 30%;
-            transform: translateX(0) scale(0.97);
-            z-index: 40;
-        }
-
-        .explore-item-2:hover .game[data-game="5"] {
-            right: 40%;
-            transform: translateX(0) scale(0.95);
-            z-index: 50;
-        }
-    }
-
-
-    .explore-item-2 .game:hover {
-        transform: scale(1.1) !important;
-        z-index: 100 !important;
-        filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
-        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-
-    .explore-item-2 .game:active {
-        transform: scale(0.9) !important;
-        transition: all 0.1s ease;
-    }
-
 
     @media (hover: none) {
-        .explore-item-2 .game {
-            transform: scale(0.9);
-        }
-
-        .explore-item-2 .game[data-game="1"] {
+        .explore-svg-1,
+        .explore-svg-2,
+        .explore-svg-3 {
             right: 0%;
-            z-index: 10;
-        }
-
-        .explore-item-2 .game[data-game="2"] {
-            right: 10%;
-            z-index: 20;
-        }
-
-        .explore-item-2 .game[data-game="3"] {
-            right: 20%;
-            z-index: 30;
-        }
-
-        .explore-item-2 .game[data-game="4"] {
-            right: 30%;
-            z-index: 40;
-        }
-
-        .explore-item-2 .game[data-game="5"] {
-            right: 40%;
-            z-index: 50;
         }
     }
 </style>
-
-<script is:inline>
-  (() => {
-
-    const videoId = 'explore-computer-video';
-    const video = document.getElementById(videoId);
-    if (!video || !(video instanceof HTMLVideoElement)) return;
-
-
-    let isPlaying = false;
-    let observer = null;
-    let playAttempts = 0;
-    const MAX_PLAY_ATTEMPTS = 3;
-
-
-    video.muted = true;
-    video.playsInline = true;
-    video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
-    video.removeAttribute('controls');
-
-
-    function tryPlay() {
-
-      if (isPlaying || playAttempts >= MAX_PLAY_ATTEMPTS) return;
-
-      playAttempts++;
-
-      const playPromise = video.play();
-
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            isPlaying = true;
-            playAttempts = 0; // 成功后重置计数
-            console.log('Video started playing successfully');
-          })
-          .catch((error) => {
-            isPlaying = false;
-            console.debug(`Video autoplay attempt ${playAttempts} failed:`, error.name);
-
-            // 如果是用户交互问题，等待用户交互后重试
-            if (error.name === 'NotAllowedError') {
-              handleUserInteraction();
-            }
-          });
-      }
-    }
-
-
-    function handleUserInteraction() {
-      const interactionEvents = ['touchstart', 'click', 'scroll'];
-
-      function onInteraction() {
-        tryPlay();
-
-        interactionEvents.forEach(event => {
-          document.removeEventListener(event, onInteraction);
-        });
-      }
-
-      interactionEvents.forEach(event => {
-        document.addEventListener(event, onInteraction, { once: true, passive: true });
-      });
-    }
-
-
-    function setupIntersectionObserver() {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-
-              if (video.paused) {
-                playAttempts = 0; // reset count
-                tryPlay();
-              }
-            } else {
-              // leave viewport, pause to save resources
-              if (!video.paused) {
-                video.pause();
-                isPlaying = false;
-              }
-            }
-          });
-        },
-        {
-          root: null,
-          rootMargin: '50px', // preload
-          threshold: 0.1
-        }
-      );
-
-      observer.observe(video);
-    }
-
-    /**
-     * Handle page visibility changes
-     */
-    function handleVisibilityChange() {
-      if (!document.hidden && !video.paused) {
-        // Page is visible again and video should play
-        const rect = video.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-
-        if (isInViewport) {
-          playAttempts = 0;
-          tryPlay();
-        }
-      }
-    }
-
-    // Initialize
-    function init() {
-      // Wait for video metadata to load
-      if (video.readyState >= 2) {
-        // HAVE_CURRENT_DATA
-        tryPlay();
-      } else {
-        video.addEventListener('loadeddata', tryPlay, { once: true });
-      }
-
-      // Setup viewport observer
-      setupIntersectionObserver();
-
-      // Listen for page visibility changes
-      document.addEventListener('visibilitychange', handleVisibilityChange);
-
-      // Special handling for mobile devices
-      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        console.log('Mobile device detected, setting up additional handlers');
-        handleUserInteraction();
-      }
-    }
-
-    // Start
-    init();
-  })();
-</script>
