@@ -2,6 +2,11 @@
 import SectionHeader from "@/components/elements/SectionHeader.astro";
 import Matter from "@/components/ui/Matter.astro";
 import Button from "@/components/ui/Button.astro";
+import systemsAutomation from "@/assets/explore/systems-automation.svg?url";
+import toolsApplications from "@/assets/explore/tools-applications.svg?url";
+import aiSolutions from "@/assets/explore/ai-solutions.svg?url";
+import stemGirls from "@/assets/explore/stem-girls.svg?url";
+import justForFun from "@/assets/explore/just-for-fun.svg?url";
 interface Props {
   title?: string;
   description?: string;
@@ -32,6 +37,9 @@ const {title, description
                             </Button>
                         </div> -->
                     </div>
+                    <div class="absolute right-0 bottom-0 top-0 w-[60%] opacity-20 pointer-events-none z-0">
+                        <img src={systemsAutomation} alt="" aria-hidden="true" class="w-full h-full object-cover">
+                    </div>
                     <div class="absolute keyboard right-[-35%] sm:right-[-50%] md:right-[-58%] bottom-0 top-0 flex items-center self-center w-[300px] sm:w-[320px] md:w-[390px] h-auto">
                         <img src="/assets/tools/keyboard.png" alt="Keyboard" class="w-full h-full object-cover">
                     </div>
@@ -44,6 +52,9 @@ const {title, description
                     <div class="content">
                         <h3>Tools & Applications</h3>
                         <p>I create tools people can actually use.</p>
+                    </div>
+                    <div class="absolute right-0 bottom-0 top-0 w-[60%] opacity-20 pointer-events-none z-0">
+                        <img src={toolsApplications} alt="" aria-hidden="true" class="w-full h-full object-cover">
                     </div>
                     <div class="explore-figure game-container absolute right-0 bottom-0 top-0 w-full h-full">
                         <div class="absolute game right-[-21%] bottom-0 top-0 mt-[-10%] flex items-center self-center w-auto h-[100px] sm:h-[120px] md:h-[130px] z-10" data-game="1">
@@ -77,6 +88,9 @@ const {title, description
                             </Button> -->
                         </div>
                     </div>
+                    <div class="absolute right-0 bottom-0 top-0 w-[60%] opacity-20 pointer-events-none z-0">
+                        <img src={aiSolutions} alt="" aria-hidden="true" class="w-full h-full object-cover">
+                    </div>
                     <div class="explore-figure computer absolute right-[5%] sm:right-[-10%] md:right-[-7%] bottom-[14%] w-[120px] sm:w-[130px] md:w-[148px] h-auto">
                         <img src="/assets/tools/retro-computer.png" alt="Explore 1" class="w-full h-full object-cover z-10 relative">
                         <div class="computer-screen absolute inset-0 w-[92px] sm:w-[100px] md:w-[116px] h-[76px] sm:h-[86px] md:h-[96px] top-[10.5%] left-[10%] rounded-[8px] rounded-b-[3px] overflow-hidden z-20">
@@ -106,6 +120,9 @@ const {title, description
                         <h3>STEM for Girls</h3>
                         <p>I'm building resources to get young girls into tech before the world tells them not to.</p>
                     </div>
+                    <div class="absolute right-0 bottom-0 top-0 w-[45%] pointer-events-none flex items-center z-0">
+                        <img src={stemGirls} alt="" aria-hidden="true" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <div class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-5 md:col-span-2 h-[220px] sm:h-[240px] md:h-[260px]"
   data-aos="fade-up-sm"
@@ -115,6 +132,9 @@ const {title, description
                     <div class="content" style="max-width: 65%;">
                         <h3>Just for Fun</h3>
                         <p>Escape games, side projects, and whatever I built because I couldn't help myself.</p>
+                    </div>
+                    <div class="absolute right-0 bottom-0 top-0 w-[35%] pointer-events-none flex items-center z-0">
+                        <img src={justForFun} alt="" aria-hidden="true" class="w-full h-auto object-contain">
                     </div>
                 </div>
 
