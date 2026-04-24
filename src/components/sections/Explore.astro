@@ -81,7 +81,7 @@ const {title, description
                         <h3>STEM for Girls</h3>
                         <p>I'm building resources to get young girls into tech before the world tells them not to.</p>
                     </div>
-                    <div class="absolute right-0 bottom-0 top-0 w-[45%] pointer-events-none flex items-center z-0">
+                    <div class="absolute explore-svg explore-svg-4 bottom-0 top-0 w-[45%] pointer-events-none flex items-center">
                         <img src={stemGirls} alt="" aria-hidden="true" class="w-full h-auto object-contain">
                     </div>
                 </div>
@@ -94,7 +94,7 @@ const {title, description
                         <h3>Just for Fun</h3>
                         <p>Escape games, side projects, and whatever I built because I couldn't help myself.</p>
                     </div>
-                    <div class="absolute right-0 bottom-0 top-0 w-[35%] pointer-events-none flex items-center z-0">
+                    <div class="absolute explore-svg explore-svg-5 bottom-0 top-0 w-[45%] pointer-events-none flex items-center">
                         <img src={justForFun} alt="" aria-hidden="true" class="w-full h-auto object-contain">
                     </div>
                 </div>
@@ -198,14 +198,18 @@ const {title, description
 
     .explore-item-1:hover .explore-svg-1,
     .explore-item-2:hover .explore-svg-2,
-    .explore-item-3:hover .explore-svg-3 {
+    .explore-item-3:hover .explore-svg-3,
+    .explore-item-4:hover .explore-svg-4,
+    .explore-item-5:hover .explore-svg-5 {
         right: 0%;
     }
 
     @media (hover: none) {
         .explore-svg-1,
         .explore-svg-2,
-        .explore-svg-3 {
+        .explore-svg-3,
+        .explore-svg-4,
+        .explore-svg-5 {
             right: 0%;
         }
     }
