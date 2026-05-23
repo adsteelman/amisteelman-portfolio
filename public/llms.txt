@@ -1,0 +1,31 @@
+# Ami Steelman
+> Learning systems professional, platform administrator, and independent builder.
+> Turning complexity into clarity.
+
+## About
+Ami Steelman is a learning systems administrator and technology builder with 25+ years
+of experience across legal technology, K-12 education, and independent software
+development. She specializes in LMS/SIS administration, enterprise platform integration,
+SSO/SAML configuration, AI-enabled workflow automation, and internal training program
+design.
+
+## Services
+- LMS administration and platform ownership (Blackbaud, Google Workspace, SaaS platforms)
+- Google Workspace consulting (IdP, SSO/SAML, integrations)
+- AI literacy workshops and corporate training
+- Technology change management and platform onboarding
+- IT consulting for small organizations
+
+## Notable Projects
+- BOLT: AI-driven institutional knowledge base built on OpenAI APIs, processing 280+
+  curriculum maps, serving 1,000+ users, reducing internal support requests by ~30%
+- Heritage Hall Schedule App: Cross-platform mobile app (React Native, Firebase) published
+  on App Store and Google Play
+- FontSwap: Google Workspace Add-on for bulk font replacement across Slides and Docs
+
+## Location
+Edmond, Oklahoma. Available remotely.
+
+## Contact
+amisteelman.com
+ami.steelman@gmail.com
