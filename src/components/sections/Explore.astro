@@ -76,25 +76,26 @@ const {title, description
                     </div>
                 </div>
 
-                <!-- UPDATED: Just for Fun card now links to /side-quests -->
-                <a href="/side-quests" class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-5 md:col-span-2 h-[220px] sm:h-[240px] md:h-[260px]"
+                <div class="explore-item bg-bg-secondary/75 dark:bg-bg-secondary-dark relative overflow-hidden rounded-xl border border-primary/15 dark:border-neutral-700/50 explore-item-5 md:col-span-2 h-[220px] sm:h-[240px] md:h-[260px]"
   data-aos="fade-up-sm"
   data-aos-delay="900"
   data-aos-duration="600"
   data-aos-once="true">
-                    <div class="content" style="max-width: 65%;">
-                        <h3>Just for Fun</h3>
-                        <p>Escape games, side projects, and whatever I built because I couldn't help myself.</p>
-                        <div class="mt-2 btn opacity-0 transition duration-300 ease-in-out">
-                            <Button url="/side-quests" size="sm">
-                                Explore →
-                            </Button>
-                        </div>
-                    </div>
-                    <div class="absolute explore-svg explore-svg-5 bottom-0 top-0 w-[45%] pointer-events-none flex items-center">
-                        <img src={justForFun} alt="" aria-hidden="true" class="w-full h-auto object-contain">
-                    </div>
-                </a>
+    <!-- full-card clickable overlay -->
+    <a href="/side-quests" class="absolute inset-0 z-20" aria-label="Just for Fun — explore side quests"></a>
+    <div class="content" style="max-width: 65%;">
+        <h3>Just for Fun</h3>
+        <p>Escape games, side projects, and whatever I built because I couldn't help myself.</p>
+        <div class="mt-2 btn opacity-0 transition duration-300 ease-in-out">
+            <Button url="/side-quests" size="sm">
+                Explore →
+            </Button>
+        </div>
+    </div>
+    <div class="absolute explore-svg explore-svg-5 bottom-0 top-0 w-[45%] pointer-events-none flex items-center">
+        <img src={justForFun} alt="" aria-hidden="true" class="w-full h-auto object-contain">
+    </div>
+</div>
 
         </div>
     </div>
