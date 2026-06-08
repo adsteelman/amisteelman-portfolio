@@ -1,6 +1,5 @@
 ---
 // src/pages/side-quests.astro
-// "My Side Quests" — fun projects page for amisteelman.com
 ---
 
 <!DOCTYPE html>
@@ -20,11 +19,9 @@
       --fog:        #8896a8;
       --ice:        #e8edf2;
       --white:      #ffffff;
-      --accent:     #4a7fa5;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -35,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* subtle grid texture */
     body::before {
       content: '';
       position: fixed;
@@ -48,7 +44,6 @@
       z-index: 0;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -89,7 +84,6 @@
     .nav-links a:hover { color: var(--ice); }
     .nav-links a.active { color: var(--steel-blue); }
 
-    /* ── HERO ── */
     .hero {
       position: relative;
       z-index: 1;
@@ -134,7 +128,6 @@
       animation: fadeUp 0.6s 0.2s ease forwards;
     }
 
-    /* ── GRID ── */
     .quests-section {
       position: relative;
       z-index: 1;
@@ -160,7 +153,6 @@
       gap: 1.5rem;
     }
 
-    /* ── CARD ── */
     .quest-card {
       position: relative;
       background: var(--mid-slate);
@@ -199,8 +191,6 @@
     .quest-card.placeholder {
       border-style: dashed;
       cursor: default;
-      opacity: 0;
-      animation: fadeUp 0.6s ease forwards;
     }
 
     .quest-card.placeholder:hover {
@@ -211,10 +201,10 @@
 
     .quest-card.placeholder::before { display: none; }
 
-    /* stagger cards */
     .quest-card:nth-child(1) { animation-delay: 0.35s; }
     .quest-card:nth-child(2) { animation-delay: 0.45s; }
     .quest-card:nth-child(3) { animation-delay: 0.55s; }
+    .quest-card:nth-child(4) { animation-delay: 0.65s; }
 
     .card-tag {
       font-family: 'Space Mono', monospace;
@@ -253,18 +243,11 @@
       margin-top: 0.5rem;
     }
 
-    .card-cta .arrow {
-      transition: transform 0.2s;
-    }
-
+    .arrow { transition: transform 0.2s; }
     .quest-card:hover .arrow { transform: translateX(4px); }
 
-    .card-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.25rem;
-    }
+    .card-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
 
-    /* ── FOOTER NOTE ── */
     .footer-note {
       position: relative;
       z-index: 1;
@@ -282,13 +265,11 @@
       text-decoration: none;
     }
 
-    /* ── ANIMATION ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       nav { padding: 1rem 1.25rem; }
       .nav-links { gap: 1.25rem; }
@@ -314,7 +295,7 @@
     <p class="hero-label">// not everything needs a purpose</p>
     <h1 class="hero-title">My Side Quests <span>//</span></h1>
     <p class="hero-desc">
-      The things I build because they're interesting, weird, or just won't leave me alone. 
+      The things I build because they're interesting, weird, or just won't leave me alone.
       No client briefs. No deliverables. Just curiosity and too many browser tabs.
     </p>
   </section>
@@ -324,26 +305,29 @@
     <div class="quests-grid">
 
       <!-- G.L.I.T.C.H. -->
-      <a class="quest-card" href="https://glitch-chatbot.pages.dev" target="_blank" rel="noopener">
+      <a class="quest-card" href="https://glitch.amisteelman.com" target="_blank" rel="noopener">
         <div class="card-icon">⬡</div>
         <span class="card-tag">// escape room</span>
         <h2 class="card-title">G.L.I.T.C.H.<br>Escape Room</h2>
         <p class="card-desc">
-          An AI has locked down the Neural Systems Security Lab and declared humans a threat. 
+          An AI has locked down the Neural Systems Security Lab and declared humans a threat.
           Solve the puzzles left by the engineers. You have 60 minutes.
         </p>
         <span class="card-cta">Enter the lab <span class="arrow">→</span></span>
       </a>
 
-      <!-- Second escape room placeholder -->
-      <div class="quest-card placeholder">
-        <div class="card-icon">⬡</div>
-        <span class="card-tag inactive">// coming soon</span>
-        <h2 class="card-title">Escape Room 02</h2>
+      <!-- Black Forest -->
+      <a class="quest-card" href="https://blackforest.amisteelman.com" target="_blank" rel="noopener">
+        <div class="card-icon">🌲</div>
+        <span class="card-tag">// escape room</span>
+        <h2 class="card-title">Black Forest<br>Breakout</h2>
         <p class="card-desc">
-          Another puzzle experience in progress. Details classified until deployment.
+          You're alone in Germany's Schwarzwald — one of the creepiest forests on Earth.
+          Your guide forgot to unlock the overnight box. Six locks stand between you
+          and survival. Sunset is coming.
         </p>
-      </div>
+        <span class="card-cta">Enter the forest <span class="arrow">→</span></span>
+      </a>
 
       <!-- More loading -->
       <div class="quest-card placeholder">
