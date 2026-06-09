@@ -9,21 +9,17 @@ interface Props {
 	description?: string | undefined;
 	keywords?: string | undefined;
 }
-
 const {
 	title,
 	description,
 	keywords
 } = Astro.props;
-
-
 import "../styles/global.css";
 import "aos/dist/aos.css";
 import "../styles/aos-custom.css";
 import '../styles/article.css';
 import '../styles/article-enhancements.css';
 ---
-
 <html lang="">
   <head>
     <meta charset="UTF-8" />
@@ -44,7 +40,6 @@ import '../styles/article-enhancements.css';
         }
       }
     </script>
-
     <link rel="icon" type="image/x-icon" href="/favicon.svg" />
   </head>
   <body class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden">
