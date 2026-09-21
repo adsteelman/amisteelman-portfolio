@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Danko Case Practice — MVP Demo</title>
+<style>
+:root{
+  --blue:#273891; --green:#0C9444; --ink:#172033; --muted:#667085;
+  --line:#d9dee8; --soft:#f5f7fb; --white:#fff; --warn:#b54708;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:#eef1f6;height:100vh;overflow:hidden}
+button{font:inherit}
+.topbar{height:66px;background:var(--blue);color:white;display:flex;align-items:center;gap:20px;padding:0 24px;box-shadow:0 2px 8px #0002}
+.brand{font-size:20px;font-weight:800;letter-spacing:.2px}
+.badge{font-size:12px;background:#ffffff20;border:1px solid #ffffff45;padding:5px 9px;border-radius:999px}
+.spacer{flex:1}
+.timer{font-variant-numeric:tabular-nums;font-weight:700}
+.resourcesBtn,.finishBtn{border:0;border-radius:8px;padding:10px 14px;font-weight:700;cursor:pointer}
+.resourcesBtn{background:white;color:var(--blue)}
+.finishBtn{background:var(--green);color:white}
+.progressbar{height:4px;background:#dce2ee}
+.progressbar>div{height:100%;background:var(--green);width:20%;transition:.2s}
+.workspace{height:calc(100vh - 70px);display:grid;grid-template-columns:minmax(340px,1fr) 6px minmax(430px,1fr)}
+.pane{background:white;overflow:auto}
+.case{padding:28px 32px}
+.divider{background:#d6dbe6;cursor:col-resize}
+.question{padding:26px 32px;display:flex;flex-direction:column}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-size:12px;font-weight:800}
+h1{font-size:25px;margin:8px 0 6px}
+h2{font-size:20px;margin:24px 0 10px}
+p,li{line-height:1.55}
+.casecard{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:16px;margin:16px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{background:white;border:1px solid var(--line);padding:10px;border-radius:8px}
+.fact b{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}
+.qhead{display:flex;align-items:center;gap:12px}
+.qnum{font-weight:800;color:var(--blue)}
+.flag{margin-left:auto;background:white;border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer}
+.flag.on{border-color:#f79009;background:#fff7ed;color:var(--warn)}
+.qtext{font-size:20px;line-height:1.45;margin:26px 0 18px}
+.choice{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:14px;margin:10px 0;cursor:pointer}
+.choice:hover{border-color:#98a2b3;background:#fafbfc}
+.choice.selected{border:2px solid var(--blue);padding:13px;background:#f6f7ff}
+.choice input{margin-top:4px}
+.nav{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:24px}
+.nav button{border:1px solid var(--line);background:white;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer}
+.nav .next{margin-left:auto;background:var(--blue);color:white;border-color:var(--blue)}
+.dots{display:flex;gap:7px;justify-content:center;flex:1}
+.dot{width:31px;height:31px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:12px;cursor:pointer;background:white}
+.dot.current{outline:2px solid var(--blue);outline-offset:2px}
+.dot.answered{background:#eaf8ef;border-color:#78c995;color:#087333}
+.dot.flagged:after{content:"";width:6px;height:6px;background:#f79009;border-radius:50%;position:absolute;margin:-22px 0 0 20px}
+.drawer{position:fixed;top:66px;right:0;width:min(620px,52vw);height:calc(100vh - 66px);background:white;box-shadow:-8px 0 28px #0003;transform:translateX(102%);transition:.25s;z-index:5;display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawerHead{display:flex;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawerHead h2{margin:0}
+.close{margin-left:auto;border:0;background:#eef1f6;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px}
+.tabs{display:flex;gap:8px;padding:12px 20px;border-bottom:1px solid var(--line)}
+.tabs button{border:1px solid var(--line);background:white;padding:9px 12px;border-radius:8px;cursor:pointer}
+.tabs button.active{background:var(--blue);color:white;border-color:var(--blue)}
+.pdf{margin:18px;background:#5a616e;padding:18px;overflow:auto;flex:1;border-radius:8px}
+.page{background:white;max-width:520px;min-height:620px;margin:0 auto 18px;padding:38px;box-shadow:0 2px 8px #0004}
+.page h3{color:var(--blue);border-bottom:2px solid var(--green);padding-bottom:8px}
+.table{width:100%;border-collapse:collapse;font-size:13px}
+.table td,.table th{border:1px solid #cfd4dc;padding:8px;text-align:left}
+.overlay{position:fixed;inset:66px 0 0 0;background:#1117;z-index:4;display:none}
+.overlay.show{display:block}
+.modal{position:fixed;z-index:10;inset:0;display:none;place-items:center;background:#1118}
+.modal.show{display:grid}
+.modalCard{background:white;width:min(520px,90vw);border-radius:14px;padding:26px;box-shadow:0 18px 50px #0005}
+.modalCard h2{margin-top:0}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.summary div{background:var(--soft);padding:14px;border-radius:8px}
+.summary b{font-size:24px;color:var(--blue)}
+.primary{background:var(--blue);color:white;border:0;border-radius:8px;padding:11px 15px;font-weight:700;cursor:pointer}
+.small{font-size:12px;color:var(--muted)}
+@media(max-width:850px){.workspace{grid-template-columns:1fr}.case{display:none}.drawer{width:90vw}.dots{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">DANKO <span style="font-weight:400">Case Practice</span></div>
+  <span class="badge">SIMULATION MODE · MVP</span>
+  <div class="spacer"></div>
+  <div class="timer" id="timer">01:59:59</div>
+  <button class="resourcesBtn" onclick="openDrawer()">☰ Resources</button>
+  <button class="finishBtn" onclick="finish()">Finish Section</button>
+</header>
+<div class="progressbar"><div id="progress"></div></div>
+
+<main class="workspace" id="workspace">
+<section class="pane case">
+  <div class="eyebrow">Case Study 01</div>
+  <h1>The Bennett Family</h1>
+  <p class="small">Use the case information below to answer Questions 1–5. This fictional case is for demonstration only.</p>
+
+  <h2>Client Profile</h2>
+  <div class="casecard">
+    <div class="grid">
+      <div class="fact"><b>CLIENTS</b>Jordan Bennett, age 48<br>Casey Bennett, age 46</div>
+      <div class="fact"><b>DEPENDENTS</b>Riley, age 17<br>Morgan, age 14</div>
+      <div class="fact"><b>HOUSEHOLD INCOME</b>$214,000 annually</div>
+      <div class="fact"><b>RETIREMENT GOAL</b>Jordan 65 · Casey 63</div>
+    </div>
+  </div>
+
+  <h2>Background</h2>
+  <p>Jordan and Casey have asked for a comprehensive review of their financial plan. Their priorities are maintaining adequate emergency reserves, funding college costs without sacrificing retirement savings, and evaluating their current insurance coverage.</p>
+  <p>Jordan is employed by Northstar Manufacturing and participates in the company's retirement plan. Casey owns a small consulting business. Both describe their investment risk tolerance as moderate.</p>
+
+  <h2>Financial Position</h2>
+  <table class="table">
+    <tr><th>Asset</th><th>Value</th></tr>
+    <tr><td>Checking & savings</td><td>$38,000</td></tr>
+    <tr><td>Jordan retirement account</td><td>$486,000</td></tr>
+    <tr><td>Casey retirement account</td><td>$231,000</td></tr>
+    <tr><td>Joint brokerage account</td><td>$142,000</td></tr>
+    <tr><td>Residence</td><td>$515,000</td></tr>
+  </table>
+
+  <h2>Additional Information</h2>
+  <ul>
+    <li>Monthly essential household expenses are approximately $9,200.</li>
+    <li>The family has $186,000 remaining on its mortgage.</li>
+    <li>Jordan's employer matches a portion of retirement-plan contributions.</li>
+    <li>The Bennetts have not updated their estate documents in eight years.</li>
+  </ul>
+  <div class="casecard"><b>Demo note:</b> In the production product, this pane could contain the full Danko-authored case with tables, exhibits, and section anchors.</div>
+</section>
+
+<div class="divider" id="divider"></div>
+
+<section class="pane question">
+  <div class="qhead">
+    <span class="qnum" id="qnum">Question 1 of 5</span>
+    <span class="small" id="status">Unanswered</span>
+    <button class="flag" id="flagBtn" onclick="toggleFlag()">⚑ Flag for Review</button>
+  </div>
+  <div class="qtext" id="qtext"></div>
+  <div id="choices"></div>
+  <div class="nav">
+    <button onclick="move(-1)">← Previous</button>
+    <div class="dots" id="dots"></div>
+    <button class="next" onclick="move(1)">Next →</button>
+  </div>
+</section>
+</main>
+
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawerHead"><div><div class="eyebrow">Allowed Exam Resources</div><h2>Reference Viewer</h2></div><button class="close" onclick="closeDrawer()">×</button></div>
+  <div class="tabs"><button id="tab1" class="active" onclick="resource(1)">Resource PDF 1</button><button id="tab2" onclick="resource(2)">Resource PDF 2</button></div>
+  <div class="pdf"><div class="page" id="pdfpage"></div></div>
+</aside>
+
+<div class="modal" id="modal">
+ <div class="modalCard">
+   <div class="eyebrow">Simulation Complete</div>
+   <h2>Section Summary</h2>
+   <p>This demo intentionally does not reveal correct answers during Simulation Mode.</p>
+   <div class="summary">
+     <div><b id="answeredCount">0</b><br><span class="small">Answered</span></div>
+     <div><b id="flaggedCount">0</b><br><span class="small">Flagged</span></div>
+   </div>
+   <button class="primary" onclick="document.getElementById('modal').classList.remove('show')">Return to Simulation</button>
+ </div>
+</div>
+
+<script>
+const questions=[
+ {q:"Based on the information provided, which planning concern should the Bennetts address when evaluating the adequacy of their current cash reserves?", a:["Their current mortgage interest rate","The relationship between liquid reserves and monthly essential expenses","The market value of their residence","Jordan's retirement age"]},
+ {q:"Which item would be most relevant when evaluating Jordan's current retirement-plan contribution strategy?",a:["The employer matching formula","The age of the Bennetts' oldest child","The balance of the mortgage","The value of their checking account"]},
+ {q:"When reviewing the family's education and retirement goals together, which consideration is most directly relevant?",a:["Whether college funding reduces resources available for retirement saving","Whether the residence has appreciated","Whether Casey changes business names","Whether the children have checking accounts"]},
+ {q:"Which additional document would be most useful in reviewing the Bennetts' estate-planning arrangements?",a:["Most recent utility bill","Current wills and beneficiary designations","Jordan's last performance review","The children's school transcripts"]},
+ {q:"The Bennetts describe their investment risk tolerance as moderate. Which additional information would be important before recommending an asset allocation?",a:["Their favorite investment website","Their capacity for risk, time horizons, and goals","Their preferred bank branch","The original purchase price of their home"]}
+];
+let current=0, answers=Array(5).fill(null), flags=Array(5).fill(false);
+
+function render(){
+ const q=questions[current];
+ document.getElementById('qnum').textContent=`Question ${current+1} of ${questions.length}`;
+ document.getElementById('qtext').textContent=q.q;
+ document.getElementById('status').textContent=answers[current]===null?"Unanswered":"Answered";
+ const c=document.getElementById('choices'); c.innerHTML="";
+ q.a.forEach((x,i)=>{
+   const lab=document.createElement('label'); lab.className="choice"+(answers[current]===i?" selected":"");
+   lab.innerHTML=`<input type="radio" name="answer" ${answers[current]===i?"checked":""}> <span><b>${String.fromCharCode(65+i)}.</b> ${x}</span>`;
+   lab.onclick=()=>{answers[current]=i; render()};
+   c.appendChild(lab);
+ });
+ document.getElementById('flagBtn').className="flag"+(flags[current]?" on":"");
+ document.getElementById('flagBtn').textContent=flags[current]?"⚑ Flagged":"⚑ Flag for Review";
+ const d=document.getElementById('dots'); d.innerHTML="";
+ questions.forEach((_,i)=>{
+   const b=document.createElement('button');
+   b.className="dot"+(i===current?" current":"")+(answers[i]!==null?" answered":"")+(flags[i]?" flagged":"");
+   b.textContent=i+1; b.onclick=()=>{current=i;render()}; d.appendChild(b);
+ });
+ document.getElementById('progress').style.width=((current+1)/questions.length*100)+"%";
+}
+function move(n){current=Math.max(0,Math.min(questions.length-1,current+n));render()}
+function toggleFlag(){flags[current]=!flags[current];render()}
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('overlay').classList.add('show');resource(1)}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('overlay').classList.remove('show')}
+function resource(n){
+ document.getElementById('tab1').classList.toggle('active',n===1);document.getElementById('tab2').classList.toggle('active',n===2);
+ document.getElementById('pdfpage').innerHTML=n===1?
+ `<h3>Sample Reference Resource</h3><p class="small">PDF-style preview for MVP demonstration</p><h2>Selected Planning Reference</h2><table class="table"><tr><th>Category</th><th>Illustrative Amount</th></tr><tr><td>Example A</td><td>$10,000</td></tr><tr><td>Example B</td><td>$25,000</td></tr><tr><td>Example C</td><td>$50,000</td></tr></table><p>This panel demonstrates how an allowed reference PDF can remain inside the testing workspace instead of opening a separate browser window.</p>`:
+ `<h3>Sample Formula Resource</h3><p class="small">PDF-style preview for MVP demonstration</p><h2>Selected Formulas</h2><p><b>Future Value</b><br>FV = PV × (1 + r)<sup>n</sup></p><p><b>Present Value</b><br>PV = FV ÷ (1 + r)<sup>n</sup></p><hr><p class="small">Placeholder content only. Production resources would use materials Danko is authorized to distribute.</p>`;
+}
+function finish(){
+ document.getElementById('answeredCount').textContent=answers.filter(x=>x!==null).length;
+ document.getElementById('flaggedCount').textContent=flags.filter(Boolean).length;
+ document.getElementById('modal').classList.add('show');
+}
+let secs=2*60*60;
+setInterval(()=>{secs=Math.max(0,secs-1);let h=Math.floor(secs/3600),m=Math.floor(secs%3600/60),s=secs%60;document.getElementById('timer').textContent=[h,m,s].map(x=>String(x).padStart(2,"0")).join(":")},1000);
+
+// draggable divider
+let drag=false;
+const divider=document.getElementById('divider'), ws=document.getElementById('workspace');
+divider.addEventListener('mousedown',()=>drag=true);
+window.addEventListener('mouseup',()=>drag=false);
+window.addEventListener('mousemove',e=>{
+ if(!drag||innerWidth<850)return;
+ const x=Math.max(340,Math.min(innerWidth-430,e.clientX));
+ ws.style.gridTemplateColumns=`${x}px 6px 1fr`;
+});
+render(); resource(1);
+</script>
+</body>
+</html>
